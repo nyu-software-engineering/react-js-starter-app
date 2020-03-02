@@ -1,4 +1,22 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Concept
+This project shows some basic usage of React.js features, including:
+- components written as Javascript functions and JSX
+- passing arguments (a.k.a props) to components
+- maintaing state (i.e. internal data fields) within a component
+- fetching data from an API and injecting it into a component
+- creating shared global navigation links across all screens
+- linking from one component to another
+- passing params from one component to another in the URL
+
+## Intentional exclusions
+There are some common practices that we have not included here, since we believe they are distraction's from a beginner's ability to master React's code patterns.
+- use of a state manager, such as Redux or Mobx
+- use of a front-end framework, such as Bootstrap or Material Design
+- use of a custom back-end API
+- inclusion of user account registration or log in functionality
+
+## Origins
+The code here is built on top of the boiler plate code bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
