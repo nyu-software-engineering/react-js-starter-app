@@ -8,6 +8,8 @@ This project shows some basic usage of React.js features, including:
 - linking from one component to another
 - passing params from one component to another in the URL
 
+Many of the features of React exhibited in this project are explained at a high level in this [https://nyu-computer-science.github.io/software-engineering/react-intro/ prepared lecture presentation].
+
 ## Intentional exclusions
 There are some common practices that we have not included here, since we believe they are distraction's from a beginner's ability to master React's code patterns.
 - use of a state manager, such as Redux or Mobx
