@@ -16,6 +16,7 @@ Many of the features of React exhibited in this project are explained at a high 
 There are some common practices that we have not included here, since we believe they are distraction's from a beginner's ability to master React's code patterns.
 - use of a state manager, such as Redux or Mobx
 - use of a front-end framework, such as Bootstrap or Material Design
+- use of a rendering engine, such as Handlebars or Pug
 - use of a custom back-end API
 - inclusion of user account registration or log in functionality
 
