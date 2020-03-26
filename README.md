@@ -1,3 +1,5 @@
+# React.js Starter App
+
 ## Concept
 This project shows some basic usage of React.js features, including:
 - components written as Javascript functions and JSX
