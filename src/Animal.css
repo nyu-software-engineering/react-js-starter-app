@@ -1,28 +1,26 @@
 .Animal {
-    
 }
 
 .animal {
-    display: flex;
+  display: flex;
 }
 
-
 .animal .details {
-    margin: 20px;
+  margin: 20px;
 }
 
 .animal .details p {
-    /* override the general setting for all paragraphs */
-    margin-left: 0px;
+  /* override the general setting for all paragraphs */
+  margin-left: 0px;
 }
 
 .animal .details .price {
-    font-size: 26px;
+  font-size: 26px;
 }
 .animal .details button {
-    padding: 20px;
-    background-color: blue;
-    color: white;
-    border-radius: 10px;
-    font-size: 26px;
+  padding: 20px;
+  background-color: blue;
+  color: white;
+  border-radius: 10px;
+  font-size: 26px;
 }

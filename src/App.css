@@ -1,7 +1,6 @@
-
 .App-logo {
-    height: 40vmin;
-    pointer-events: none;
+  height: 40vmin;
+  pointer-events: none;
 }
 
 /* styles shared by all screens within the app */
@@ -19,7 +18,8 @@
   display: flex; /* use css flexbox for elements inside of this element */
 }
 
-.main-content p, .main-content img {
+.main-content p,
+.main-content img {
   flex: auto;
   align-items: center;
 }

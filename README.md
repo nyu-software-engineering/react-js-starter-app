@@ -1,7 +1,9 @@
 # React.js Starter App
 
 ## Concept
+
 This project shows some basic usage of React.js features, including:
+
 - components written as Javascript functions and JSX
 - passing arguments (a.k.a props) to components
 - maintaing state (i.e. internal data fields) within a component
@@ -15,7 +17,9 @@ This project shows some basic usage of React.js features, including:
 Many of the features of React exhibited in this project are explained at a high level in this [prepared lecture presentation](https://nyu-computer-science.github.io/software-engineering/react-intro/).
 
 ## Intentional exclusions
+
 There are some common practices that we have not included here, since we believe they are distraction's from a beginner's ability to master React's code patterns.
+
 - use of a state manager, such as Redux or Mobx
 - use of a front-end framework, such as Bootstrap or Material Design
 - use of a rendering engine, such as Handlebars or Pug
@@ -23,6 +27,7 @@ There are some common practices that we have not included here, since we believe
 - inclusion of user account registration or log in functionality
 
 ## Origins
+
 The code here is built on top of the boiler plate code bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

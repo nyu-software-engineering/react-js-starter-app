@@ -1,10 +1,11 @@
 .AnimalPreview {
-    flex: 1 0 40%; /* shorthand for: flex-grow flex-shrink flex-basis settings */
-    text-align: center;
-    border: 1px solid black;
-    border-left-width: 19px;
-    padding: 40px 0;
+  flex: 1 0 40%; /* shorthand for: flex-grow flex-shrink flex-basis settings */
+  text-align: center;
+  border: 1px solid black;
+  border-left-width: 19px;
+  padding: 40px 0;
 }
 
-.AnimalPreview img, .AnimalPreview h2 {
+.AnimalPreview img,
+.AnimalPreview h2 {
 }
