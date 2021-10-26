@@ -32,6 +32,11 @@
   object-fit: contain;
 }
 
+.main-content form {
+  flex: auto;
+  margin-left: 20px;
+}
+
 h1 {
   font-family: georgia;
   margin-left: 20px;
@@ -39,4 +44,29 @@ h1 {
 
 p {
   font-family: helvetica;
+}
+
+/* styles for form text fields */
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  margin: 10px 0;
+  width: 200px;
+}
+
+/* styles for the form submit button */
+input[type="submit"] {
+  margin-top: 20px;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  padding: 20px;
+  font-size: 20px;
+}
+
+/* changes to the submit button when it is being clicked */
+input[type="submit"]:active {
+  color: black;
+  background-color: white;
+  border-color: black;
 }
