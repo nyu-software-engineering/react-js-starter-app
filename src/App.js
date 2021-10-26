@@ -14,7 +14,6 @@ import "./App.css"
 const AnimalWrapper = ({ match }) => {
   return (
     <>
-      <PrimaryNav />
       <Animal animalId={match.params.id} />
     </>
   )
@@ -27,33 +26,28 @@ const App = props => {
   return (
     <div className="container">
       <Router>
+        {/* pass the setter function that can be called if the user successfully logs in from the login screen */}
+        <PrimaryNav user={user} setuser={setUser} />
         <Switch>
           <Route path="/about">
-            <PrimaryNav user={user} setuser={setUser} />
             <About />
           </Route>
 
           <Route path="/animals/:id" component={AnimalWrapper} />
 
           <Route path="/animals">
-            <PrimaryNav user={user} setuser={setUser} />
             <AnimalsList />
           </Route>
 
           <Route path="/login">
-            {/* pass the setter function that can be called if the user successfully logs in from the login screen */}
-            <PrimaryNav user={user} setuser={setUser} />
             <Login user={user} setuser={setUser} />
           </Route>
 
           <Route path="/logout">
-            {/* pass the setter function that can be called if the user successfully logs in from the login screen */}
-            <PrimaryNav user={user} setuser={setUser} />
             <Logout user={user} setuser={setUser} />
           </Route>
 
           <Route path="/">
-            <PrimaryNav user={user} setuser={setUser} />
             <Home />
           </Route>
         </Switch>

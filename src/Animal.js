@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import './Animal.css'
+import React, { useState, useEffect } from "react"
+import axios from "axios"
+import "./Animal.css"
 
-const Animal = (props) => {
+const Animal = props => {
   // console.log(props); // a specific animal id should be passed as a prop
 
   // start a state varaible with a blank array
@@ -12,12 +12,12 @@ const Animal = (props) => {
   useEffect(() => {
     // fetch some mock data about animals for sale
     console.log(`fetching animal id=${props.animalId}...`)
-    axios('https://my.api.mockaroo.com/animals.json?num=1&key=d9ddfc40')
-      .then((response) => {
+    axios("https://my.api.mockaroo.com/animals.json?num=1&key=d9ddfc40")
+      .then(response => {
         // extract the data from the server response
         setData(response.data)
       })
-      .catch((err) => {
+      .catch(err => {
         // Mockaroo, which we're using for our Mock API, only allows 200 requests per day on the free plan
         console.log(`Sorry, buster.  No more requests allowed today!`)
         console.error(err) // the server returned an error... probably too many requests... until we pay!
@@ -26,17 +26,22 @@ const Animal = (props) => {
         const backupData = [
           {
             id: 2,
-            title: 'Numbat',
-            country: 'Russia',
-            price: '$2.37',
+            title: "Numbat",
+            country: "Russia",
+            price: "$2.37",
             description:
-              'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.',
+              "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
           },
         ]
 
         setData(backupData[0])
       })
   }, [props.animalId])
+
+  const handleBuyButtonClick = e => {
+    // placeholder... do something more interesting
+    alert(`You clicked the button to buy the ${data.title}.`)
+  }
 
   // inject a random placeholder image from the Lorem Picsum API
   // the mockaroo API we're using doesn't include this
@@ -53,7 +58,9 @@ const Animal = (props) => {
             <address class="address">{data.country}</address>
             <strong class="price">{data.price}</strong>
             <p>{data.description}</p>
-            <button class="buy-now">Buy now!</button>
+            <button class="buy-now" onClick={handleBuyButtonClick}>
+              Buy now!
+            </button>
           </div>
         </article>
       </section>
