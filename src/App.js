@@ -3,21 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import PrimaryNav from "./PrimaryNav"
 import Home from "./Home"
 import About from "./About"
+import AnimalDetail from "./AnimalDetail"
 import AnimalsList from "./AnimalsList"
-import Animal from "./Animal"
 import Login from "./Login"
 import Logout from "./Logout"
 import "./App.css"
-
-// this is used in one of the routes below for a specific animal with a specific id
-// there's no nicer way to pass props to a component in a route
-const AnimalWrapper = ({ match }) => {
-  return (
-    <>
-      <Animal animalId={match.params.id} />
-    </>
-  )
-}
 
 // set up routes so different URL routes load up different main components
 const App = props => {
@@ -33,7 +23,8 @@ const App = props => {
             <About />
           </Route>
 
-          <Route path="/animals/:id" component={AnimalWrapper} />
+          {/* a route that matches a given animal id and passes that id to the AnimalWrapper component */}
+          <Route path="/animals/:id" component={AnimalDetail} />
 
           <Route path="/animals">
             <AnimalsList />

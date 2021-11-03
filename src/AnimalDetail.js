@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import "./Animal.css"
+import "./AnimalDetail.css"
 
 const Animal = props => {
   // console.log(props); // a specific animal id should be passed as a prop
@@ -11,7 +11,8 @@ const Animal = props => {
   // the following side-effect will only be called once on initial render
   useEffect(() => {
     // fetch some mock data about animals for sale
-    console.log(`fetching animal id=${props.animalId}...`)
+    // the id of the animal that was clicked on is passed as a part of the match field of the props
+    console.log(`fetching animal id=${props.match.params.id}...`)
     axios("https://my.api.mockaroo.com/animals.json?num=1&key=d9ddfc40")
       .then(response => {
         // extract the data from the server response
@@ -54,11 +55,11 @@ const Animal = props => {
       <section className="main-content">
         <article className="animal" key={data.id}>
           <img alt={data.title} src={imgSrc} />
-          <div class="details">
-            <address class="address">{data.country}</address>
-            <strong class="price">{data.price}</strong>
+          <div className="details">
+            <address className="address">{data.country}</address>
+            <strong className="price">{data.price}</strong>
             <p>{data.description}</p>
-            <button class="buy-now" onClick={handleBuyButtonClick}>
+            <button className="buy-now" onClick={handleBuyButtonClick}>
               Buy now!
             </button>
           </div>
