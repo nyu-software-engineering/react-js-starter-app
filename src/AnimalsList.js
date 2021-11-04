@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from "react"
+import { Redirect } from "react-router-dom"
+import axios from "axios"
 // import logo from './logo.svg';
-import './AnimalsList.css'
-import AnimalPreview from './AnimalPreview'
+import "./AnimalsList.css"
+import AnimalThumb from "./AnimalThumb"
 
-const AnimalsList = (props) => {
+const AnimalsList = props => {
   // start a state varaible with a blank array
   const [data, setData] = useState([])
 
   // the following side-effect will be called once upon initial render
   useEffect(() => {
     // fetch some mock data about animals for sale
-    console.log('fetching 10 random animals...')
-    axios('https://my.api.mockaroo.com/animals.json?num=10&key=d9ddfc40')
-      .then((response) => {
+    console.log("fetching 10 random animals...")
+    axios("https://my.api.mockaroo.com/animals.json?num=10&key=d9ddfc40")
+      .then(response => {
         // extract the data from the server response
         setData(response.data)
       })
-      .catch((err) => {
+      .catch(err => {
         // Mockaroo, which we're using for our Mock API, only allows 200 requests per day on the free plan
         console.log(`Sorry, buster.  No more requests allowed today!`)
         console.error(err) // the server returned an error... probably too many requests... until we pay!
@@ -26,25 +27,30 @@ const AnimalsList = (props) => {
         const backupData = [
           {
             id: 1,
-            title: 'Paddy heron (unidentified)',
-            country: 'Brazil',
-            price: '$10.51',
+            title: "Paddy heron (unidentified)",
+            country: "Brazil",
+            price: "$10.51",
             description:
-              'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.',
+              "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
           },
           {
             id: 2,
-            title: 'Numbat',
-            country: 'Russia',
-            price: '$2.37',
+            title: "Numbat",
+            country: "Russia",
+            price: "$2.37",
             description:
-              'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.',
+              "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
           },
         ]
 
         setData(backupData)
       })
   }, []) // only run it once!
+
+  // if the user is not logged in, redirect them to the login route
+  if (!props.user || !props.user.success) {
+    return <Redirect to="/login/protected" />
+  }
 
   return (
     <div className="AnimalsList">
@@ -60,11 +66,20 @@ const AnimalsList = (props) => {
           turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant
           winter purslane fennel azuki bean earthnut pea sierra leone bologi
           leek soko chicory celtuce parsley jícama salsify.
+          <br />
+          <br />
+          <strong>
+            {/* show a special message to the logged-in user */}
+            {props.user && props.user.success
+              ? `Welcome ${props.user.username}! Thank you for being logged-in!`
+              : `You must be logged in to view this list of animals.`}
+          </strong>
         </p>
       </section>
       <section className="animals">
-        {data.map((item) => (
-          <AnimalPreview key={item.id} details={item} />
+        {/* show a thumbnail for each animal */}
+        {data.map(item => (
+          <AnimalThumb user={props.user} key={item.id} details={item} />
         ))}
       </section>
     </div>

@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 import "./AnimalDetail.css"
 
-const Animal = props => {
-  // console.log(props); // a specific animal id should be passed as a prop
-
+const AnimalDetail = props => {
   // start a state varaible with a blank array
   const [data, setData] = useState([])
+
+  // get the id of the animal this component is rendering
+  const animalId = props.match.params.id
 
   // the following side-effect will only be called once on initial render
   useEffect(() => {
     // fetch some mock data about animals for sale
     // the id of the animal that was clicked on is passed as a part of the match field of the props
-    console.log(`fetching animal id=${props.match.params.id}...`)
+    console.log(`fetching animal id=${animalId}...`)
     axios("https://my.api.mockaroo.com/animals.json?num=1&key=d9ddfc40")
       .then(response => {
         // extract the data from the server response
@@ -37,7 +38,7 @@ const Animal = props => {
 
         setData(backupData[0])
       })
-  }, [props.animalId])
+  }, [animalId])
 
   const handleBuyButtonClick = e => {
     // placeholder... do something more interesting
@@ -70,4 +71,4 @@ const Animal = props => {
 }
 
 // make this function available to be imported into another module
-export default Animal
+export default AnimalDetail

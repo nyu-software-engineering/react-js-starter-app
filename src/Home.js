@@ -1,8 +1,9 @@
-import React from 'react'
+import React from "react"
+import { Link } from "react-router-dom"
 // import logo from './logo.svg';
-import './Home.css'
+import "./Home.css"
 
-const Home = (props) => {
+const Home = props => {
   return (
     <div className="Home">
       <h1>Welcome!</h1>
@@ -22,6 +23,9 @@ const Home = (props) => {
           pie brownie biscuit. Candy lollipop liquorice caramels icing biscuit.
           Marzipan candy canes gingerbread bonbon tart dessert pudding sesame
           snaps sweet roll. Gingerbread gummi bears toffee chupa chups.
+          <br />
+          <br />
+          <Link to="/animals">Check out our animals!</Link>
         </p>
       </section>
     </div>

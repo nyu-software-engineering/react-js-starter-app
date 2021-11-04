@@ -20,14 +20,19 @@ const App = props => {
         <PrimaryNav user={user} setuser={setUser} />
         <Switch>
           <Route path="/about">
-            <About />
+            <About user={user} />
           </Route>
 
           {/* a route that matches a given animal id and passes that id to the AnimalWrapper component */}
-          <Route path="/animals/:id" component={AnimalDetail} />
+          <Route path="/animals/:id" user={user} component={AnimalDetail} />
 
           <Route path="/animals">
-            <AnimalsList />
+            {/* we want this route to require the user be logged in, so we pass the user data in as a prop */}
+            <AnimalsList user={user} />
+          </Route>
+
+          <Route path="/login">
+            <Login user={user} setuser={setUser} />
           </Route>
 
           <Route path="/login">
@@ -39,7 +44,7 @@ const App = props => {
           </Route>
 
           <Route path="/">
-            <Home />
+            <Home user={user} />
           </Route>
         </Switch>
       </Router>

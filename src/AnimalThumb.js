@@ -1,8 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './AnimalPreview.css'
+import React from "react"
+import { Link } from "react-router-dom"
+import "./AnimalThumb.css"
 
-const AnimalPreview = (props) => {
+const AnimalThumb = props => {
   // console.log(props);
 
   // inject a random placeholder image from the Lorem Picsum API
@@ -11,7 +11,7 @@ const AnimalPreview = (props) => {
   const imgSrc = `https://picsum.photos/200?id=${props.details.id}` // tack on this animal's id to the query
 
   return (
-    <article className="AnimalPreview">
+    <article className="AnimalThumb">
       <Link to={`/animals/${props.details.id}`}>
         <img alt={props.details.title} src={imgSrc} />
         <h2>{props.details.title}</h2>
@@ -21,4 +21,4 @@ const AnimalPreview = (props) => {
 }
 
 // make this function available to be imported into another module
-export default AnimalPreview
+export default AnimalThumb
