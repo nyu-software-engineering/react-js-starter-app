@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Redirect } from "react-router-dom"
+import { Navigate } from "react-router-dom"
 // import logo from './logo.svg';
 
 const Logout = props => {
@@ -10,7 +10,7 @@ const Logout = props => {
   }, [])
 
   // send the user to the home screen
-  return <Redirect to="/" />
+  return <Navigate to="/" />
 }
 
 export default Logout

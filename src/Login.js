@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from "react"
-import { Redirect } from "react-router-dom"
+import { Navigate, useSearchParams } from "react-router-dom"
 import axios from "axios"
 // import logo from './logo.svg';
 import "./Login.css"
 
 const Login = props => {
+  let [urlSearchParams] = useSearchParams() // get access to the URL query string parameters
+
   // create state variables to hold username and password
   const [status, setStatus] = useState({}) // the API will return an object indicating the login status in a success field of the response object
+  const [errorMessage, setErrorMessage] = useState(``) // will contain any error message that explains why the user was redirected to this page.
+
+  // if the user got here by trying to access our Protected page, there will be a query string parameter called 'error' with the value 'protected'
+  useEffect(() => {
+    const qsError = urlSearchParams.get("error") // get any 'error' field in the URL query string
+    if (qsError === "protected")
+      setErrorMessage(
+        "Please log in to view our fabulous protected animals list."
+      )
+  }, [])
 
   // if the user's logged-in status changes, call the setuser function that was passed to this component from the PrimaryNav component.
   useEffect(() => {
@@ -46,6 +58,7 @@ const Login = props => {
     return (
       <div className="Login">
         <h1>Log in</h1>
+        {errorMessage ? <p className="error">{errorMessage}</p> : ""}
         <section className="main-content">
           <img alt="login!" src="https://picsum.photos/200?page=home" />
           <form onSubmit={handleSubmit}>
@@ -73,7 +86,7 @@ const Login = props => {
     )
   // otherwise, if the user has successfully logged-in, redirect them to a different page
   // in this example, we simply redirect to the home page, but a real app would redirect to a page that shows content only available to logged-in users
-  else return <Redirect to="/" />
+  else return <Navigate to="/animals" />
 }
 
 export default Login

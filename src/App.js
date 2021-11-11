@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import PrimaryNav from "./PrimaryNav"
 import Home from "./Home"
 import About from "./About"
@@ -18,35 +18,35 @@ const App = props => {
       <Router>
         {/* pass the setter function that can be called if the user successfully logs in from the login screen */}
         <PrimaryNav user={user} setuser={setUser} />
-        <Switch>
-          <Route path="/about">
-            <About user={user} />
-          </Route>
+        <Routes>
+          <Route path="/about" element={<About user={user} />} />
 
           {/* a route that matches a given animal id and passes that id to the AnimalWrapper component */}
-          <Route path="/animals/:id" user={user} component={AnimalDetail} />
 
-          <Route path="/animals">
-            {/* we want this route to require the user be logged in, so we pass the user data in as a prop */}
-            <AnimalsList user={user} />
-          </Route>
+          {/* we want this route to require the user be logged in, so we pass the user data in as a prop */}
+          <Route path="/animals" element={<AnimalsList user={user} />} />
+          <Route
+            path="/animals/:animalId"
+            element={<AnimalDetail user={user} />}
+          />
 
-          <Route path="/login">
-            <Login user={user} setuser={setUser} />
-          </Route>
+          <Route
+            path="/login"
+            element={<Login user={user} setuser={setUser} />}
+          />
 
-          <Route path="/login">
-            <Login user={user} setuser={setUser} />
-          </Route>
+          <Route
+            path="/login"
+            element={<Login user={user} setuser={setUser} />}
+          />
 
-          <Route path="/logout">
-            <Logout user={user} setuser={setUser} />
-          </Route>
+          <Route
+            path="/logout"
+            element={<Logout user={user} setuser={setUser} />}
+          />
 
-          <Route path="/">
-            <Home user={user} />
-          </Route>
-        </Switch>
+          <Route path="/" element={<Home user={user} />} />
+        </Routes>
       </Router>
     </div>
   )

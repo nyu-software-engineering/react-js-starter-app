@@ -1,2 +1,6 @@
 .Login {
 }
+.Login .error {
+  margin-left: 20px;
+  color: red;
+}

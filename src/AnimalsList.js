@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Redirect } from "react-router-dom"
+import { Navigate } from "react-router-dom"
 import axios from "axios"
 // import logo from './logo.svg';
 import "./AnimalsList.css"
@@ -49,7 +49,7 @@ const AnimalsList = props => {
 
   // if the user is not logged in, redirect them to the login route
   if (!props.user || !props.user.success) {
-    return <Redirect to="/login/protected" />
+    return <Navigate to="/login?error=protected" />
   }
 
   return (

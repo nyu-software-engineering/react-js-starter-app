@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
 import axios from "axios"
 import "./AnimalDetail.css"
 
@@ -6,8 +7,8 @@ const AnimalDetail = props => {
   // start a state varaible with a blank array
   const [data, setData] = useState([])
 
-  // get the id of the animal this component is rendering
-  const animalId = props.match.params.id
+  // get the id of the animal this component is rendering... the useParams function will grab it from the URL
+  const animalId = useParams()
 
   // the following side-effect will only be called once on initial render
   useEffect(() => {
