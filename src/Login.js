@@ -58,6 +58,12 @@ const Login = props => {
     return (
       <div className="Login">
         <h1>Log in</h1>
+        <p className="feedback">
+          This page is placeholder only... without a back-end, we cannot support
+          true login functionality. In this case, we fake a login request to a
+          mock API and randomly allow the user in or not. Keep trying until you
+          get in.
+        </p>
         {errorMessage ? <p className="error">{errorMessage}</p> : ""}
         <section className="main-content">
           <img alt="login!" src="https://picsum.photos/200?page=home" />

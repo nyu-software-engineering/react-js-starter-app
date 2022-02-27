@@ -9,7 +9,7 @@ const Logout = props => {
     props.setuser({}) // set the user data to a blank object
   }, [])
 
-  // send the user to the home screen
+  // redirect the user to the home screen
   return <Navigate to="/" />
 }
 
