@@ -1,6 +1,6 @@
-import React from "react"
-import "./PrimaryNav.css"
-import { Link } from "react-router-dom"
+import React from 'react'
+import './PrimaryNav.css'
+import { Link } from 'react-router-dom'
 
 const PrimaryNav = props => {
   // we assume a function named setuser is passed as a prop to this component

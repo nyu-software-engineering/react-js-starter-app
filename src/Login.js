@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react"
-import { Navigate, useSearchParams } from "react-router-dom"
-import axios from "axios"
+import React, { useState, useEffect } from 'react'
+import { Navigate, useSearchParams } from 'react-router-dom'
+import axios from 'axios'
 // import logo from './logo.svg';
-import "./Login.css"
+import './Login.css'
 
 const Login = props => {
   let [urlSearchParams] = useSearchParams() // get access to the URL query string parameters
@@ -13,10 +13,10 @@ const Login = props => {
 
   // if the user got here by trying to access our Protected page, there will be a query string parameter called 'error' with the value 'protected'
   useEffect(() => {
-    const qsError = urlSearchParams.get("error") // get any 'error' field in the URL query string
-    if (qsError === "protected")
+    const qsError = urlSearchParams.get('error') // get any 'error' field in the URL query string
+    if (qsError === 'protected')
       setErrorMessage(
-        "Please log in to view our fabulous protected animals list."
+        'Please log in to view our fabulous protected animals list.'
       )
   }, [])
 
@@ -41,7 +41,7 @@ const Login = props => {
       }
       // send the request to the server api to authenticate
       const response = await axios.post(
-        "https://my.api.mockaroo.com/login.json?key=d9ddfc40",
+        'https://my.api.mockaroo.com/login.json?key=d9ddfc40',
         requestData
       )
       // store the response data into the data state variable
@@ -64,7 +64,7 @@ const Login = props => {
           mock API and randomly allow the user in or not. Keep trying until you
           get in.
         </p>
-        {errorMessage ? <p className="error">{errorMessage}</p> : ""}
+        {errorMessage ? <p className="error">{errorMessage}</p> : ''}
         <section className="main-content">
           <img alt="login!" src="https://picsum.photos/200?page=home" />
           <form onSubmit={handleSubmit}>

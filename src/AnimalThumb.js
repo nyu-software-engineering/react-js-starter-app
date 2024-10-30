@@ -1,6 +1,6 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import "./AnimalThumb.css"
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './AnimalThumb.css'
 
 const AnimalThumb = props => {
   // console.log(props);

@@ -1,7 +1,7 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from 'react'
+import { Link } from 'react-router-dom'
 // import logo from './logo.svg';
-import "./About.css"
+import './About.css'
 
 const About = props => {
   return (

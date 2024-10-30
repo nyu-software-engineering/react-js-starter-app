@@ -1,13 +1,13 @@
-import React, { useState } from "react"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import PrimaryNav from "./PrimaryNav"
-import Home from "./Home"
-import About from "./About"
-import AnimalDetail from "./AnimalDetail"
-import AnimalsList from "./AnimalsList"
-import Login from "./Login"
-import Logout from "./Logout"
-import "./App.css"
+import React, { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import PrimaryNav from './PrimaryNav'
+import Home from './Home'
+import About from './About'
+import AnimalDetail from './AnimalDetail'
+import AnimalsList from './AnimalsList'
+import Login from './Login'
+import Logout from './Logout'
+import './App.css'
 
 // set up routes so different URL routes load up different main components
 const App = props => {
