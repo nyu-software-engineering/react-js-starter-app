@@ -12,10 +12,8 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [
-      react({
-        jsxRuntime: 'classic', // Add this line
-      }),
-      //   viteTsconfigPaths(),
+      react(),
+      viteTsconfigPaths(),
       svgr({
         include: '**/*.svg?react',
       }),
