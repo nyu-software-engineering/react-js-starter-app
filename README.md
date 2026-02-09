@@ -35,7 +35,7 @@ In the project directory, you can run:
 Installs all the dependencies listed in the `package.json` configuration file.
 This is necessary before running the app, since the 3rd-party dependency code is excluded from version control by the `.gitignore` git settings file.
 
-### `npm start`
+### `npm run dev`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
