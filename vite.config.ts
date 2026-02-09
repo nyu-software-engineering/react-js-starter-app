@@ -22,6 +22,8 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: 'build',
     },
+    // set the base directory for local vs GitHub Pages deploy
+    base: mode === 'production' ? '/react-js-starter-app/' : '/',
     // open browser on start, like create-react-app did
     // open at port number specified in .env file
     server: {
