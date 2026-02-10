@@ -15,7 +15,7 @@ const App = props => {
 
   return (
     <div className="container">
-      <Router>
+      <Router basename={import.meta.env.BASE_URL}>
         {/* pass the setter function that can be called if the user successfully logs in from the login screen */}
         <PrimaryNav user={user} setuser={setUser} />
         <Routes>
